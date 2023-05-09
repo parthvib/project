@@ -1,0 +1,189 @@
+*{
+    box-sizing: border-box;/*it gives border to all the elements having width*/
+}
+/*this selects all the form elements*/
+/*this file is used for declaration of css variables because this file is included in all the variables*/
+
+
+
+html{
+font-family:'Open sans','sans-serif' ;
+--color-gray-50:rgb(243,236,230);
+--color-gray-100:rgb(22, 41, 144);
+--color-gray-300:rgb(66, 135, 240);
+--color-gray-400:rgb(188, 194, 223);
+--color-gray-500:rgb(250, 249, 248);
+--color-gray-600:rgb(167, 190, 211);
+--color-gray-700:rgb(133, 173, 216);
+/*css variables are declared with '--' sign*/
+/* here gray means dark colour and primary means light colour*/
+--color-primary-50:rgb(93, 163, 237);
+--color-primary-100:rgb(145, 195, 242);
+--color-primary-200:rgb(53, 61, 134);
+--color-primary-400:rgb(9, 33, 126);
+--color-primary-500:rgb(6, 23, 118);
+--color-primary-700:rgb(10, 60, 107);
+/*--color-primary-600-contrast:rgb(2, 100, 62);*/
+--color-primary-500-contrast:rgb(255, 255, 255);
+
+--color-error-100:rgb(255,192,180);
+--color-error-500:rgb(199,51,15);
+
+--color-primary-500-bg:rgb(130, 147, 177);
+
+/*while defining padding we want clearly defined values so */
+--space-1:0.25rem;
+--space-2:0.5rem;
+--space-4:1rem;
+--space-6:1.5rem;
+--space-8:2rem;
+
+--border-radius-small:4px;
+--border-radius-medium:6px;
+
+--shadow-medium:0 2px 8px rgba(0,0,0,0.2);
+
+
+}
+body{
+    background-color: var(--color-gray-500);
+    color:var(--color-gray-100);
+    margin:0;
+
+
+}
+/*to center the content*/
+main{
+    width: 90%;
+    max-width:50rem;/*it will not be greater than 50 rem*/
+    margin: 0 auto;
+}
+ol,
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}/*we can add multiple selectors*/
+a{
+    text-decoration: none;
+    color: var(--color-primary-400);
+}
+.btn{
+    cursor: pointer;
+    font:inherit;/*it will take the fonts set in the link,they will get main font of the page*/
+    padding: var(--space-2) var(--space-6);
+    background-color: var(--color-primary-500);
+    color:var(--color-primary-500-contrast);
+    border: 1px solid var(--color-primary-500);
+    border-radius: var(--border-radius-small);
+}
+.btn-alt{
+
+    background-color: transparent;
+    color: var(--color-primary-500);
+}
+/* .btn-l{
+    cursor: pointer;
+    font:inherit;/*it will take the fonts set in the link,they will get main font of the page*/
+    /* padding: var(--space-2) var(--space-6);
+    background-color: white;
+    color:blue;
+    border: 1px solid var(--color-primary-500);
+    border-radius: var(--border-radius-small); 
+} */
+
+.btn-alt:hover,
+.btn-alt:active{
+    background-color: var(--color-primary-500-bg);
+    color: white;
+}
+
+
+.btn:hover,
+.btn:active{
+
+    background-color: var(--color-primary-700);
+    
+}
+
+.alert{
+    border-radius:var(--border-radius-small);
+    background-color: var(--color-error-100);
+    color:var(--color-error-500);
+    padding:var(--space-4);
+
+}
+.alert h2{
+    font-size: 1rem;
+    margin:var(--space-2) 0;
+    text-transform: uppercase;
+
+}
+.alert p{
+    margin: var(--space-2) 0;
+}
+
+.badge{
+
+margin-left: var(--space-2);
+padding: 0.15rem var(--space-4);
+border-radius:10rem;
+background-color: var(--color-primary-500);
+color:var(--color-primary-500-contrast);
+
+
+
+}
+
+.footer{
+   
+        display: flex;
+        width: 80%;
+        height: 7rem;
+        margin:7rem auto 2rem auto;
+        background-color: rgb(196, 227, 255);
+        padding: 1.5rem 1rem;
+        border-radius: 5px;
+        font-family: inherit;
+        flex-direction: row;
+        justify-content:space-evenly;
+}
+.icons{
+    font-size:1.5rem;
+
+}
+.footer p{
+    margin-top: 2.5px;
+}
+
+@media(min-width:48rem){
+    .footer{
+
+        text-align: center;
+        display: flex;
+        width: 80%;
+        height: 7rem;
+        margin:5rem auto 1rem auto;
+        background-color: rgb(196, 227, 255);
+        padding: 1rem 2rem;
+        border-radius: 5px;
+        font-size: 1.5rem;
+        flex-direction: row;
+        justify-content:space-evenly;
+
+}
+.footer p{
+    margin-top: 1rem;
+}
+.icons{
+   font-size: 3rem;
+    padding-left: 0px;
+    padding-right: 0px;
+
+}
+}
+
+
+
+

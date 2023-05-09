@@ -1,0 +1,69 @@
+<!--to show us all the cart content-->
+<%-include('../../shared/includes/head',{pagetitle:'Your cart'}) %>
+<!-- <link rel="stylesheet" href="/styles/form.css"> -->
+
+<link rel="stylesheet" href="/styles/cart.css">
+<script src="/scripts/cart-item-management.js" defer></script>
+</head>
+    <!--this '-' takes some code and does not escapes it we want to take a raw html code and parse it-->
+    <!--this will title in header ejs-->
+    <!-- <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/auth.css">
+    </head> -->
+    <!--this two css links are given here to fetch that amount of css code only-->
+    <!--head that was opened in header.ejs-->
+   
+
+    <body>
+        <%- include('../../shared/includes/header')%>
+            <main>
+                <h1>
+                  Your Cart
+                </h1>
+          <ul id="cart-items">
+              <% for(const cartItem of locals.cart.items) { %>         <!--because we have added cart locals we dont need to connect it to the database for 
+            fetching data -->
+              <li>
+                 <%- include('includes/cart-item',{item:cartItem}) %>
+                <!--<article class="cart-item">
+                    <div class="cart-item-info">
+                        <h2>
+                            title
+                        </h2>
+                        <p>
+                            total price for this product
+                        </p>
+                    </div>
+                    <div class="cart-item-management">
+                        <input type="number" required>number of cart items
+                        <button class="btn btn-"></button>
+                    </div>
+
+                </article> -->
+            </li>
+            <% } %>
+
+          </ul>
+            <div id="cart-total">
+                <p>Total:Rs <span id="cart-total-price"> <%= locals.cart.totalPrice.toFixed(2) %></span></p><!--to fixed is a inbuilt method to roundup the data-->
+
+                <!-- only if locals.auth means user is logged in then only buy button is shown -->
+                <% if (locals.isauth) { %>
+                    <form action="/orders" method="POST"> <!--to send the post request-->
+                        <input type="hidden" name="_csrf" value="<%= locals.csrftoken %>"  >
+                <button class="btn">Buy Products</button>
+            </form>
+           <%  } else { %>
+            <p id="cart-total-fallback">Log in to purchase the item</p>
+
+           <% } %>
+
+            </div>    
+            </main>
+        </body>
+        </html>
+
+            <!-- <%-include('../../shared/includes/footer')%> -->
+
+
+

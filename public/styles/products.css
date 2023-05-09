@@ -1,0 +1,197 @@
+
+.intro{
+    display: flex;
+    width: fit-content;
+    height: 12rem;
+    margin:7rem auto 2rem auto;
+    background-color: rgb(196, 227, 255);
+    padding: 1.5rem 2rem;
+    border-radius: 5px;
+    font-family:'playball';
+    flex-direction: row;
+    justify-content: space-around;
+    
+    
+}
+.para{
+    font-size: 1rem;
+
+}
+.para1{
+    font-size: 1rem;
+    margin-left: -100px;
+    animation-name:ani;
+    animation-fill-mode: forwards;
+    animation-duration:2s; 
+    color: white;
+    /* position:absolute; */
+
+}
+
+@keyframes ani{
+    from{
+        margin-left: -100px;
+        color: white;
+    }
+    to{
+        margin-left: 10px;
+        color: var(--color-gray-100);
+    }
+}
+
+
+ .div2{
+    height: 8rem;
+    width: 10rem;
+    margin: 0.5rem 0.5rem;
+    font-size: 1rem;
+    color:white;
+   background-color:  rgb(124, 168, 224);
+     padding:0.5rem 1rem;
+    font-weight: 100;
+    border-radius: 5px;
+    
+} 
+
+
+#products-grid{
+    margin: var(--space-8) 0;
+    display: grid;/*it helps to position child elements of the parent element*/
+    grid-template-columns:repeat(auto-fill, minmax(15rem,1fr));/*this allows us to set the columns of the grid*/
+    /* repeat is used to set same setting to all the columns */
+    gap: var(--space-4);
+
+
+}
+.product-item{
+    border-radius: var(--border-radius-medium);
+    text-align: center;
+    background-color:var(--color-gray-600);
+    overflow: hidden;
+
+}
+.product-item img{
+    width: 15.4rem;
+    height: 10.9rem;
+    object-fit: cover;
+}
+
+.product-item-content
+{
+    padding:var(--space-4);
+
+
+}
+.product-item-content h2{
+    font-size: 1.15rem;
+    margin: var(--space-2) 0;
+
+}
+.product-item-action{
+    display: flex;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    justify-content: center;
+}
+#product-details header{
+    margin-top: var(--space-8);
+    padding: var(--space-8);
+    background-color: var(--color-gray-600);
+    gap: var(--space-8);
+
+
+}
+#product-details img{
+    width: 100%;
+    height: 6rem;
+    object-fit: cover;
+    border-radius: var(--border-radius-medium);
+    border: 1px solid var(--color-gray-100);
+
+
+}
+#product-info{
+    text-align: center;
+
+}
+#product-description{
+    background-color: var(--color-primary-500-bg);
+    font-weight:bold;
+    padding: var(--space-8);
+    white-space: pre-wrap;/*this makes sure that white space in the html elements are not ignored*/
+}
+
+
+@media(min-width:48rem){
+    #product-details header{
+        display:flex;
+    }
+    #product-details img{
+        width: 20rem;
+        height: 15rem;
+        transform:rotateZ(-10deg);
+        margin: var(--space-8);
+
+    }
+
+    #product-info{
+        text-align: left;
+
+    }
+
+    .intro{
+    display: flex;
+    width: 70%;
+    height: 20rem;
+    margin:4rem auto 4rem auto;
+    background-color: rgb(196, 227, 255);
+    padding: 1.5rem 2rem;
+    border-radius: 5px;
+    font-family:'playball';
+    flex-direction: row;
+    justify-content: space-between;
+    
+    
+}
+.para{
+    font-size: 2.5rem;
+
+}
+.para1{
+    font-size: 2.5rem;
+    margin-left: -180px;
+    animation-name:ani;
+    animation-fill-mode: forwards;
+    animation-duration:2s;
+    color: white;
+    /* position:absolute; */
+
+}
+.div2{
+    height: 10rem;
+    width: 30rem;
+    margin: 3rem 3rem;
+    font-size: 1.5rem;
+    color: rgb(247, 247, 247);
+    background-color: rgb(124, 168, 224);
+    padding: 2rem 4rem;
+    font-weight: 100;
+    border-radius: 5px;
+}
+
+@keyframes ani{
+    from{
+        margin-left: -180px;
+        color: white;
+    }
+    to{
+        margin-left: 100px;
+        color: var(--color-gray-100);
+    }
+}
+
+
+
+}
+
+

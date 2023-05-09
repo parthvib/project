@@ -1,0 +1,37 @@
+<ul class="nav-items">
+    <% if (!locals.isAdmin) { %>
+    <li><a href="/">Shop</a></li>
+    <li><a href="/cart">Cart<span class="badge"><%= locals.cart.totalQuantity %></span></a></li>
+     <% } %>
+<!--so we only show a regular shop if we are not an admin-->
+    
+    <% if (locals.isauth && !locals.isAdmin) { %>
+    <li><a href="/orders">Orders</a></li>
+    <% } %>
+
+     <% if (locals.isAdmin){%>
+         <li><a href="/admin/products">Manage Products</a></li>
+          <li><a href="/admin/orders">Manage Orders</a></li>
+
+        
+     <% } %>
+
+         <% if(!locals.isauth) { %>
+         <li><a href="/signup">Signup</a></li>
+         <li><a href="/login">Login</a></li>
+     <% } %>  
+
+
+    <% if (locals.isauth) { %>
+    <li>
+        <form action="/logout" method="POST">
+            <input type="hidden" name="_csrf" value="<%= locals.csrftoken%>">
+        <button class="btn btn-alt" style="color: rgb(150, 185, 240);">Logout</button>
+     </form>
+     </li>
+    <% } %>
+</ul> 
+</nav>
+<!--this list which is button should only be added if the user is authenticated 
+otherwise it is useless
+-->

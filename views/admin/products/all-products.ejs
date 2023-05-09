@@ -1,0 +1,57 @@
+<%- include('../../shared/includes/head',{pagetitle:'all products'}) %>
+<link rel="stylesheet" href="/styles/products.css">
+<link rel="stylesheet" href="/styles/base.css">
+<script src="/scripts/product-management.js" defer></script>
+</head>
+    <!--this '-' takes some code and does not escapes it we want to take a raw html code and parse it-->
+    <!--this will title in header ejs-->
+    <!-- <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/auth.css">
+    </head> -->
+    <!--this two css links are given here to fetch that amount of css code only-->
+    <!--head that was opened in header.ejs-->
+
+    <body>
+        <%- include('../../shared/includes/header')%>
+        <main><h1>
+               Product Administration
+            </h1>
+            <section>
+                <h2>
+                  Manage Products 
+                </h2>
+                <p>
+                   <a href="/admin/products/new" class="btn">Add Product</a> 
+                </p>
+            </section>
+            <section>
+            <p></p>
+              <!-- A list of products.. 
+                -->
+                <!-- to view data in a grid -->
+                <ul id="products-grid">
+                   <% for(const product of products) { %> <!-- to loop through many items -->
+                   <li>
+                    <%- include('../../shared/includes/product-item',{product:product})%>
+<!-- product before colon is the
+   key used in included
+    file and the product after colon is the product used in for loop -->
+                  </li>
+                  <% } %>
+                  <!-- <article>
+                    <img src="" alt="">
+                    <h2>Title</h2>
+                    <div>
+                    <a href="" class="btn btn-alt">View and Edit</a>
+                    <button class="btn btn-alt">Delete</button>
+                    </div>
+                  </article>  this code is added in includes folder /admin file
+                this paragraph was in li tag-->
+                </ul>
+            
+            </section>
+            
+            
+            </main>
+          
+        <%-include('../../shared/includes/footer')%>

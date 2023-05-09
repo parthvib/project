@@ -1,0 +1,24 @@
+<%-include('../../shared/includes/head',{pagetitle:'Success!'}) %>
+<link rel="stylesheet" href="/styles/orders.css">
+</head>
+    <!--this '-' takes some code and does not escapes it we want to take a raw html code and parse it-->
+    <!--this will title in header ejs-->
+    <!-- <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/auth.css">
+    </head> -->
+    <!--this two css links are given here to fetch that amount of css code only-->
+    <!--head that was opened in header.ejs-->
+   
+
+    <body>
+        <%- include('../../shared/includes/header')%>
+            <main>
+                <h1>
+              Order was Successful
+                </h1>
+                
+            <p>You can visit orders page for more details </p>
+                
+            </main>
+
+            <%-include('../../shared/includes/footer')%>

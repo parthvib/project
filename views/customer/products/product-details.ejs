@@ -1,0 +1,31 @@
+<%-include('../../shared/includes/head',{pagetitle: product.title}) %>
+<link rel="stylesheet" href="/styles/products.css">
+<script src="/scripts/cart-management.js" defer></script>
+</head>
+    <!--this '-' takes some code and does not escapes it we want to take a raw html code and parse it-->
+    <!--this will title in header ejs-->
+    <!-- <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/auth.css">
+    </head> -->
+    <!--this two css links are given here to fetch that amount of css code only-->
+    <!--head that was opened in header.ejs-->
+   
+
+    <body>
+        <%- include('../../shared/includes/header')%>
+            <main id="product-details">
+                <header>
+                    <img src="<%= product.imageurl %>" alt="<%= product.title %>"><!--img url can be accesed from model-->
+                    <div id="product-info">
+                        <h1><%= product.title %></h1>
+                        <p>Rs <%= product.price %> </p>
+                        <button class="btn" data-productid="<%= product.id %>" data-csrf= "<%= locals.csrftoken %>" >Add to Cart</button>
+                    </div>
+                </header>
+           
+
+                <p id="product-description"><%= product.description %></p>
+
+            </main>
+
+            <%-include('../../shared/includes/footer')%>

@@ -1,0 +1,42 @@
+<article class="order-item">
+    <header class="order-summary">
+        <h2>
+            <span class="order-item-price">Rs <%= order.productData.totalPrice.toFixed(2) %></span> - <%= order.formattedDate %> </h2>
+            <p><span class="badge"><%=order.status.toUpperCase() %></span></p>
+            
+    </header>
+    <section class="order-details">
+       <% if(locals.isAdmin){ %>
+        <address>
+            <p><a href="mailto:<%= order.userData.email %>"><%=order.userData.name %></a></p><!--this is for admin to view more details about the order-->
+             <p><%= order.userData.address.street %><%= order.userData.address.postalCode %> <%= order.userData.address.city %></p> 
+        </address>
+        <% } %>
+        <ul>
+            <!--for regular user-->
+            <% for (const item of order.productData.items){ %>
+                <li><%= item.product.title %> - rs <%= item.totalPrice.toFixed(2) %> </li>
+                <% } %>
+        </ul>
+
+    </section>
+    <!--if you are an administrator then-->
+    <% if (locals.isAdmin){ %>
+        <section class="order-actions">
+            <form>
+                <input type="hidden" name="_csrf" value="<%= locals.csrftoken %>">
+                <input type="hidden" name="orderid" value="<%= order.id %>">
+                <select name="status">
+                    <option value="pending" <% if(order.status ==='pending') {%>selected <% }%> > pending</option>
+                    <option value="fulfilled" <% if(order.status ==='fulfilled'){%>selected <%}%>>fulfilled</option>
+                    <option value="cancelled" <% if(order.status ==='cancelled'){%>selected <%}%>>cancelled</option>
+
+                </select>
+                <button class="btn btn-alt">Update </button>
+
+            </form>
+        </section>
+        <% }%>
+
+
+</article>

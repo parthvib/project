@@ -1,0 +1,22 @@
+
+
+<%-include('includes/head',{pagetitle:'an error occurred'}) %>
+<!--this '-' takes some code and does not escapes it we want to take a raw html code and parse it-->
+<!--this will title in header ejs-->
+
+</head>
+<!--this two css links are given here to fetch that amount of css code only-->
+<!--head that was opened in header.ejs-->
+
+<body>
+    <%- include('includes/header')%>
+    <main >
+        <h1>
+            Not authenticated
+        </h1>
+        <p>
+            You are not authenticated
+        </p>
+        <p><a class="btn" href="/">back to safety</a></p>
+    </main>
+    <%-include('includes/footer')%>

@@ -1,0 +1,23 @@
+
+<article class="product-item">
+    <img src="<%= product.imageurl %>" alt="<%= product.title%>"><!--this is created dynamically-->
+    <div class="product-item-content">
+      <h2><%= product.title%></h2>
+      <div class="product-item-action">
+
+        <% if(locals.isAdmin) { %>
+          <a class="btn btn-alt"  href="/admin/products/<%= product.id %>" >View and Edit</a><!--product.id to edit that specific product-->
+          <button class="btn btn-alt" data-productid="<%= product.id %>" data-csrf="<%= locals.csrftoken %>">Delete</button>
+          <!-- as a regular user we should not be able to edit and delete the products -->
+        <% } else {  %>
+          <a  class="btn btn-alt" href="/products/<%=product.id %>"> View Details </a>
+          <% } %>
+
+      <!-- <a class="btn btn-alt"  href="/admin/products/<%= product.id %>" >View and Edit</a>--product.id to edit that specific product-->
+      <!-- <button class="btn btn-alt" data-productid="<%= product.id %>" data-csrf="<%= locals.csrftoken %>">Delete</button> -->
+      <!-- </div>data-attribute(product)  when we use this data attributes we can add arbitary data peieces to our element  -->
+      <!-- //and inject the value which will be different for every data items--> 
+        </div>
+    </div>
+  </article>
+  

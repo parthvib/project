@@ -1,0 +1,23 @@
+<!-- it will hold form for adding new products -->
+<%-include('../../shared/includes/head',{pagetitle:'update product'}) %>
+<link rel="stylesheet" href="/styles/form.css">
+<script src="/scripts/image-preview.js"></script>
+
+</head>
+    <!--this '-' takes some code and does not escapes it we want to take a raw html code and parse it-->
+    <!--this will title in header ejs-->
+    <!-- <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/auth.css">
+    </head> -->
+    <!--this two css links are given here to fetch that amount of css code only-->
+    <!--head that was opened in header.ejs-->
+ 
+    <body>
+        <%- include('../../shared/includes/header')%>
+        <main>
+            <h1> Update Products</h1>
+            <%- include('includes/product-form', { submitPath : '/admin/products/' + product.id, product:product , imageRequired:false }) %>
+            <!--with this we can prepopulate the data -->    
+            </main>
+          
+        <%-include('../../shared/includes/footer') %>

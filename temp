@@ -1,0 +1,124 @@
+auth folder is used because we have a lot of views
+and to structure them auth folder is used 
+auth folder will include all authentication views
+admin folder is used to for admin related views
+poducts folder will hold product related views
+cart folder will hold cart related views
+
+we have work with authenticationfolder
+
+//fonts
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
+
+
+css variables are defined just as javascript variables
+and this variables are includes defining of some padding and colour so we dont have to refer them frequently and can use it repeatedly in different parts of the code
+
+csurf package also needs a session package to handle csrf token
+
+functions like hashing functions and signup functions can fail also the database connection can fail 
+in this case we need error handling functions
+
+express gives us default error handling mechanism
+
+all middlewares are functions
+
+sessions are pieces of data stored on the server which are connected to users with the help of cokkies
+and if the user has a valid cookie with valid session id that points to one of the sessions stored on the server  and that session then sends that this user is authenticated then this user can be granted access to extra resources for that we need a third party package which is express-session connect-mongodb-session which is session storage package for storing the session session can be stored anywhere in file datbases etc.  here we want to store that in database so for that connect-mongodb-session is used 
+
+
+
+express ignores errors that are in  async functions    
+to handle that errors we use try and catch   
+
+
+we added a new field isadmin to create admin ,so only admin can view some pages
+
+
+online-shop> db.users.updateOne({_id:ObjectId("6394d1025e9a871adff15100")},{$set:{isAdmin:true}})
+
+
+the scripts added in the public -> scripts folder are the browser side javascript the code that we run when manipulate the screen .
+
+
+multer package is used for handling file controls
+
+we add this multer package in as a middleware where we expect to accept a file from user 
+
+uuid package is used to generate unique names so that there is clashing of names later
+and it makes sure that file recieves its own unique number 
+
+output a product on a grid 
+
+to serve or to view the image we need to write code in app.js
+
+
+after outputting the data in the form we need the working of view and edit button
+for updating we need a new ejs file where all details are already filled and we are able update the existing products
+for that the logic is written in update-product.ejs
+
+//axios third party packages which is popular package for sending https requests 
+
+//user can remove frontend javascript by simply inspecting the browser
+so to avoid that we need to add server side validation
+
+//the 404 error can appear if the user removes some or more text or part of the id
+so error 404 comes to play
+and 404.ejs is added
+
+if we configure the path of the data
+then the normal user can definitely delete and edit product so to fix that and it working because we are not protecting the admin routes
+
+//we have to add new middleware to protect the routes 
+// protect routes
+
+//after configuring it we have make sure that every visitor is able to see the website
+
+for that we have add products controler and different routes
+(products.contoller.js)
+
+to output products in products item
+just as in admin area we need to copy product-item and place it in includes
+
+we need to view product details when user clicks on the view details button
+new file- product-details
+
+then after designing the productdetails page
+
+we have make a contoller and route action to view details of exact product that is being clicked
+
+after that we have to create cart model and cart controller to work with those items
+
+//cart.js middleware has the job to look at incoming requests determining wether a user has item in the cart 
+//after adding middleware we have to add that in app.js
+
+
+//the request is added in the cart using ajax sending methods 
+
+showing cart increasing numbers
+
+after that adding cart page
+
+to load cart ejs we have to go to cart controller
+
+to make the update button work we will use ajax so that we don't reload the page.
+
+and for that text in textbox i.e. qauntity , total and cart badge should be updated . so for that we have to go cart.model
+
+cart item management js is created to connect the button to javascript
+
+after updating data we have to update dom request
+
+now we have to make sure that our buy products button only works if user is logged in
+
+if user is logged in than we he/she can click the button and able to buy products
+
+
+after defining how the date should look like we need some method to save in database about orders.
+
+once we place the order we want to clear the cart
+
+after this we have to make sure that orders page display orders placed
+
+what if user puts the product in cart and whilst admin changes the price or remove the product so for that updatePrices function is added

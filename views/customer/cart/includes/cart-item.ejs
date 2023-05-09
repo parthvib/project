@@ -1,0 +1,22 @@
+<article class="cart-item">
+    <div class="cart-item-info">
+        <h2>
+          <%=item.product.title %>
+        </h2>
+        <p>Rs <span class="cart-item-price"><%=item.totalPrice.toFixed(2) %> </span><span class="cart-product-price">Rs (<%= item.product.price.toFixed(2) %>)</span>
+            <!-- total price for this product -->
+        </p>
+    </div>
+
+    <!--
+        every cart item has its own form to get access to all those form and add submit event 
+        listerner to all forms hence it cart-item-management we can get access to those
+
+    -->
+
+    <form class="cart-item-management" data-productid="<%= item.product.id %>" data-csrf="<%= locals.csrftoken %>">
+        <input type="number" value="<%= item.quantity %>" required>
+        <button class="btn btn-alt">Update</button>
+    </form>
+
+</article>
